@@ -1,5 +1,4 @@
 //This javascript file is to hold an array to contain each friend object.
-
 var friends = [
     {
         "name": "Adam",
@@ -7,3 +6,5 @@ var friends = [
         "scores": []
     }
 ]
+
+module.exports = friends;
