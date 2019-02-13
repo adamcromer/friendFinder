@@ -12,21 +12,40 @@
 </head>
 
 <body class="bg-dark">
-    <div class="container mt-4 text-white">
-        <div class="jumbotron bg-secondary pb-4">
+    <div class="container mt-4 text-white bg-secondary rounded">
+        <div class="jumbotron pb-4 bg-secondary">
             <h1 class="display-2 text-center">Friend Finder</h1>
             <p class="display-5 lead text-center">Your new best friend awaits after just a few questions.
                 <br>Our high tech computer algorithms match your up with your perfect mate. Best mate that is.</p>
             <hr class="my-3">
             <div class="text-center mt-2 pb-0">
-                <a class="btn btn-primary btn-lg" href="/home" role="button">Home</a>
-                <a class="btn btn-success btn-lg disabled" href="/survey" role="button">Take Survey</a>
+                <a class="btn btn-primary btn-lg border" href="/home" role="button">Home</a>
+                <a class="btn btn-success btn-lg disabled border" href="/survey" role="button">Take Survey</a>
             </div>
         </div>
+    </div>
+    <div class="container text-white bg-secondary p-4 rounded">
+        <form>
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input class="form-control" id="name" placeholder="John Smith"></input>
+                <label for="name">URL to your image:</label>
+                <input class="form-control" id="image" placeholder="http://imgur.com/mypicture"></input>
+            </div>
+            <div class="btn-group text-center" role="group" aria-label="Basic example" id="question1">
+                <button type="button" class="btn btn-lg btn-primary border">Left</button>
+                <button type="button" class="btn btn-lg btn-success border">Middle</button>
+                <button type="button" class="btn btn-lg btn-danger border">Right</button>
+                <button type="button" class="btn btn-lg btn-warning border">Right</button>
+            </div>
+            <br><br>
+            <button type="submit" class="btn btn-lg btn-primary bg-dark border float-left" id="submit">Submit</button>
+        </form>
     </div>
     <div class="container mt-4 mb-4">
         <a href="api/friends">API Friends List</a>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -38,6 +57,21 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+        $("#submit").on("click", function () {
+
+            event.preventDefault();
+
+            console.log($("#question1").val());
+
+
+        });
+
+
+
+    </script>
 </body>
 
 </html>

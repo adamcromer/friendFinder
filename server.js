@@ -11,6 +11,7 @@ app.use(express.json());
 // The below points our server to the proper route file
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
+require("./app/routing/calculations")(app);
 
 app.listen(PORT, function () {
     console.log("App listening on http://localhost:" + PORT);
