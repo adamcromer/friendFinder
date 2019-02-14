@@ -14,7 +14,7 @@ var questions = [
     },
     {
         "question": "Which of these books do you prefer?",
-        "answers": ["", "", "Harry Potter", "I don't read books"]
+        "answers": ["Brief History of Time", "Of Mice and Men", "Harry Potter", "I don't read books"]
     },
     {
         "question": "Which of these movies do you prefer?",
@@ -26,20 +26,20 @@ var questions = [
     },
     {
         "question": "What season do you prefer?",
-        "answers": ["Summer", "Spring", "Autumn", "Winter"]
+        "answers": ["Winter", "Spring", "Summer", "Autumn"]
     },
     {
-        "question": "",
-        "answers": ["", "", "", ""]
+        "question": "Which of these places would you rather take a vacation to?",
+        "answers": ["Tokyo", "Bruges", "Paris", "Hawaii"]
     },
     {
-        "question": "",
-        "answers": ["", "", "", ""]
+        "question": "What is your ideal date?",
+        "answers": ["Cuddle with a movie", "Look at the stars", "Go on a hike", "Go ski/snowboard"]
     },
     {
-        "question": "",
-        "answers": ["", "", "", ""]
+        "question": "What attribute do you respect the most?",
+        "answers": ["kindness", "respect", "humor", "honesty"]
     }
 ]
 
-module.exports = questions;
+// module.exports = questions;

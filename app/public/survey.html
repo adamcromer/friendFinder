@@ -24,23 +24,21 @@
             </div>
         </div>
     </div>
-    <div class="container text-white bg-secondary p-4 rounded">
-        <form>
-            <div class="form-group">
-                <label for="name">Your Name:</label>
-                <input class="form-control" id="name" placeholder="John Smith"></input>
-                <label for="name">URL to your image:</label>
-                <input class="form-control" id="image" placeholder="http://imgur.com/mypicture"></input>
-            </div>
-            <div class="btn-group text-center" role="group" aria-label="Basic example" id="question1">
-                <button type="button" class="btn btn-lg btn-primary border">Left</button>
-                <button type="button" class="btn btn-lg btn-success border">Middle</button>
-                <button type="button" class="btn btn-lg btn-danger border">Right</button>
-                <button type="button" class="btn btn-lg btn-warning border">Right</button>
-            </div>
-            <br><br>
-            <button type="submit" class="btn btn-lg btn-primary bg-dark border float-left" id="submit">Submit</button>
-        </form>
+    <div class="container text-white bg-secondary p-4 rounded h-100 clearFix">
+        <button type="button" class="btn btn-lg btn-danger border mt-2 text-center" id="startSurvey">
+            Start Survey
+        </button>
+        <div id="survey" style="display:none">
+            <h1>Survey:</h1>
+            <form id="questionHolder">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input class="form-control" id="name" placeholder="John Smith"></input>
+                    <label for="name">URL to your image:</label>
+                    <input class="form-control" id="image" placeholder="http://imgur.com/mypicture"></input>
+                </div>
+            </form>
+        </div>
     </div>
     <div class="container mt-4 mb-4">
         <a href="api/friends">API Friends List</a>
@@ -57,19 +55,90 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../data/questions.js"></script>
 
     <script type="text/javascript">
+
+        //This javascript file is to hold an array to contain each question and answers
+        var questions = [
+            {
+                "question": "Which of these scare you the most?",
+                "answers": ["Spiders", "Heights", "Commitment", "Change"]
+            },
+            {
+                "question": "Which of these colors do you prefer?",
+                "answers": ["Green", "Blue", "Red", "Yellow"]
+            },
+            {
+                "question": "If you could only have one of these pets, what kind of pet would it be?",
+                "answers": ["Dog", "Cat", "Bird", "Fish"]
+            },
+            {
+                "question": "Which of these books do you prefer?",
+                "answers": ["Brief History of Time", "Of Mice and Men", "Harry Potter", "I don't read books"]
+            },
+            {
+                "question": "Which of these movies do you prefer?",
+                "answers": ["Birdman", "Inglourious Basterds", "The Goonies", "I don't watch movies"]
+            },
+            {
+                "question": "Which artist do you prefer?",
+                "answers": ["Explosions in the Sky", "Kendrick Lamar", "The Beatles", "I don't like music"]
+            },
+            {
+                "question": "What season do you prefer?",
+                "answers": ["Winter", "Spring", "Summer", "Autumn"]
+            },
+            {
+                "question": "Which of these places would you rather take a vacation to?",
+                "answers": ["Tokyo", "Bruges", "Paris", "Hawaii"]
+            },
+            {
+                "question": "What is your ideal date?",
+                "answers": ["Cuddle with a movie", "Look at the stars", "Go on a hike", "Go ski/snowboard"]
+            },
+            {
+                "question": "What attribute do you respect the most?",
+                "answers": ["Kindness", "Respect", "Humor", "Honesty"]
+            }
+        ];
+        // var questions = require("../data/questions");
+        var questionHolder = $("#questionHolder");
+
+        for (var i = 0; i < questions.length; i++) {
+            var questionDiv = $('<div class="btn-group text-center pt-2 mt-2 float-left" role="group">');
+            questionDiv.attr('data-id', i);
+            var answerDiv = $('<div class="p-3 float-left">');
+            var question = $('<h3>').text(questions[i].question);
+            var answer1 = $('<br><br><button type="button" class="btn btn-lg btn-primary border mt-2">').text(questions[i].answers[0]);
+            var answer2 = $('<button type="button" class="btn btn-lg btn-success border mt-2">').text(questions[i].answers[1]);
+            var answer3 = $('<button type="button" class="btn btn-lg btn-danger border mt-2">').text(questions[i].answers[2]);
+            var answer4 = $('<button type="button" class="btn btn-lg btn-warning border mt-2">').text(questions[i].answers[3]);
+            
+            answerDiv.append(answer1, answer2, answer3, answer4)
+            questionDiv.append(question, answerDiv);
+            questionHolder.append(questionDiv);
+        }
+
+        var submitButton = $('<button type="submit" class="btn btn-lg btn-primary bg-dark border float-left mt-5" id="submit">Submit</button>');
+        var clearButton = $('<button type="button" class="btn btn-lg btn-danger border mt- float-right">Clear</button>');
+        var resetButton = $('<button type="button" class="btn btn-lg btn-warning border mt-2 float-right" id="resetSurvey">Reset</button>');
+        questionHolder.append(submitButton, clearButton, resetButton);
+
+        $("#startSurvey").on("click", function () {
+
+            event.preventDefault();
+            $("#startSurvey").hide();
+            $("#survey").show();
+
+        });
 
         $("#submit").on("click", function () {
 
             event.preventDefault();
-
             console.log($("#question1").val());
 
-
         });
-
-
 
     </script>
 </body>
