@@ -7,6 +7,6 @@ Friend Finder is an app to help find your perfect friend. Answer a quick survey 
 This project was made using JQuery, JavaScript, Express, and Bootstrap.
 <br><br>
 
-[Made by Adam Cromer, 2018.](http://www.adamcromer.com)
+[Made by Adam Cromer, 2019.](http://www.adamcromer.com)
 
 
