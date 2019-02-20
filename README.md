@@ -1,6 +1,6 @@
 # <b>Friend Finder</b>
 
-View deployed app on [heroku.](https://powerful-headland-69724.herokuapp.com/home)
+[View deployed app on heroku.](https://powerful-headland-69724.herokuapp.com/home)
 
 Friend Finder is an app to help find your perfect friend. Answer a quick survey and see who you get paired up with.
 
